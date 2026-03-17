@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Review - Interior Edit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <!-- header -->
+        <header class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Interior Edit Logo">
+            </div>
+
+             <nav class="navbar">
+                <div class="menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+
+                    <!-- DESIGN GALLERY DROPDOWN -->
+                    <div class="dropdown">
+                        <a href="#">Design Gallery ▾</a>
+                            <div class="dropdown-list">
+                              <a href="living_gallery.html">Living Room</a>
+                              <a href="bedroom_gallery.html">Bedroom</a>
+                              <a href="bathroom_gallery.html">Bathroom</a>
+                              <a href="wardrobe_gallery.html">Wardrobe</a>
+                              <a href="office_gallery.html">Office Room</a>
+                              <a href="kitchen_gallery.html">Kitchen</a>
+                              <a href="dining_gallery.html">Dining Room</a>
+                              <a href="pooja_gallery.html">Pooja Room</a>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#">Cities ▾</a>
+
+                            <div class="dropdown-list">
+                                <a href="mohali.html">Mohali</a>
+                                <a href="jalandhar.html">Jalandhar</a>
+                                <a href="ludhiana.html">Ludhiana</a>
+                                <a href="mumbai.html">Mumbai</a>
+                                <a href="patiala.html">Patiala</a>
+                                <a href="pune.html">Pune</a>
+                                <a href="ahmedabad.html">Ahmedabad</a>
+                                <a href="kolkata.html">Kolkata</a>
+                                <a href="shimla.html">Shimla</a>
+                                <a href="panchkula.html">Panchkula</a>
+                                <a href="gurugram.html">Gurugram</a>
+                                <a href="delhi.html">Delhi</a>
+                            </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <a href="review.html">Review</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="enquiry_form.html">Enquiay </a>
+                    </div>
+                </div>
+            </nav>
+        </header> <!-- end of header -->
+<div class="review-container">
+    <div class="review-video">
+        <video autoplay muted loop>
+            <source src="images/review.mp4" type="video/mp4">
+        </video>
+</div>
+    <div class="submit-review" id="submit-review">
+        <h2>Write a Review</h2>
+        <form id="reviewForm">
+            <input type="text" id="reviewName" placeholder="Your Name" required>
+            <input type="email" id="reviewEmail" placeholder="Your Email" required>
+            <select id="reviewRating" required>
+                <option value="">Select Rating</option>
+                <option value="5">★★★★★ 5</option>
+                <option value="4">★★★★☆ 4</option>
+                <option value="3">★★★☆☆ 3</option>
+                <option value="2">★★☆☆☆ 2</option>
+                <option value="1">★☆☆☆☆ 1</option>
+            </select>
+            <textarea id="reviewMessage" placeholder="Your Review" rows="4" required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</div>
+
+<script>
+const reviewForm = document.getElementById('reviewForm');
+
+reviewForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('reviewName').value.trim();
+    const email = document.getElementById('reviewEmail').value.trim();
+    const rating = document.getElementById('reviewRating').value;
+    const message = document.getElementById('reviewMessage').value.trim();
+
+    if (!name || !email || !rating || !message) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    alert('Thank you, ' + name + '! Your review has been submitted successfully.');
+    reviewForm.reset();
+});
+</script>
+
+</body>
+</html>

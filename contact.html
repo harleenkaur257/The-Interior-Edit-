@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <!-- header -->
+        <header class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Interior Edit Logo">
+            </div>
+
+             <nav class="navbar">
+                <div class="menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+
+                    <!-- DESIGN GALLERY DROPDOWN -->
+                    <div class="dropdown">
+                        <a href="#">Design Gallery ▾</a>
+                            <div class="dropdown-list">
+                              <a href="living_gallery.html">Living Room</a>
+                              <a href="bedroom_gallery.html">Bedroom</a>
+                              <a href="bathroom_gallery.html">Bathroom</a>
+                              <a href="wardrobe_gallery.html">Wardrobe</a>
+                              <a href="office_gallery.html">Office Room</a>
+                              <a href="kitchen_gallery.html">Kitchen</a>
+                              <a href="dining_gallery.html">Dining Room</a>
+                              <a href="pooja_gallery.html">Pooja Room</a>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#">Cities ▾</a>
+
+                            <div class="dropdown-list">
+                                <a href="mohali.html">Mohali</a>
+                                <a href="jalandhar.html">Jalandhar</a>
+                                <a href="ludhiana.html">Ludhiana</a>
+                                <a href="mumbai.html">Mumbai</a>
+                                <a href="patiala.html">Patiala</a>
+                                <a href="pune.html">Pune</a>
+                                <a href="ahmedabad.html">Ahmedabad</a>
+                                <a href="kolkata.html">Kolkata</a>
+                                <a href="shimla.html">Shimla</a>
+                                <a href="panchkula.html">Panchkula</a>
+                                <a href="gurugram.html">Gurugram</a>
+                                <a href="delhi.html">Delhi</a>
+                            </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <a href="review.html">Review</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="enquiry_form.html">Enquiay </a>
+                    </div>
+                </div>
+            </nav>
+        </header> <!-- end of header -->
+<div class="contact-section">
+
+    <div class="contact-video">
+        <video autoplay muted loop>
+            <source src="images/contact.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="contact-form-wrapper">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you. Send us your message.</p>
+
+        <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Your Name" id="name" required>
+            <input type="email" placeholder="Your Email" id="email" required>
+            <input type="tel" placeholder="Phone Number" id="phone" required>
+            <textarea placeholder="Your Message" rows="4" id="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // prevent actual form submission
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !phone || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        // Simple email validation
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // Simple phone validation (digits only, 10-15 characters)
+        const phonePattern = /^[0-9]{10,15}$/;
+        if (!phonePattern.test(phone)) {
+            alert('Please enter a valid phone number (10-15 digits).');
+            return;
+        }
+
+        // If all validations pass
+        alert('Thank you, ' + name + '! Your message has been sent successfully.');
+        form.reset(); // clear the form
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+      <!-- header -->
+        <header class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Interior Edit Logo">
+            </div>
+
+             <nav class="navbar">
+                <div class="menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+
+                    <!-- DESIGN GALLERY DROPDOWN -->
+                    <div class="dropdown">
+                        <a href="#">Design Gallery ▾</a>
+                            <div class="dropdown-list">
+                              <a href="living_gallery.html">Living Room</a>
+                              <a href="bedroom_gallery.html">Bedroom</a>
+                              <a href="bathroom_gallery.html">Bathroom</a>
+                              <a href="wardrobe_gallery.html">Wardrobe</a>
+                              <a href="office_gallery.html">Office Room</a>
+                              <a href="kitchen_gallery.html">Kitchen</a>
+                              <a href="dining_gallery.html">Dining Room</a>
+                              <a href="pooja_gallery.html">Pooja Room</a>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#">Cities ▾</a>
+
+                            <div class="dropdown-list">
+                                <a href="mohali.html">Mohali</a>
+                                <a href="jalandhar.html">Jalandhar</a>
+                                <a href="ludhiana.html">Ludhiana</a>
+                                <a href="mumbai.html">Mumbai</a>
+                                <a href="patiala.html">Patiala</a>
+                                <a href="pune.html">Pune</a>
+                                <a href="ahmedabad.html">Ahmedabad</a>
+                                <a href="kolkata.html">Kolkata</a>
+                                <a href="shimla.html">Shimla</a>
+                                <a href="panchkula.html">Panchkula</a>
+                                <a href="gurugram.html">Gurugram</a>
+                                <a href="delhi.html">Delhi</a>
+                            </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <a href="review.html">Review</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="enquiry_form.html">Enquiay </a>
+                    </div>
+                </div>
+            </nav>
+        </header> <!-- end of header -->
+
+<div class="container">
+
+    <div class="video-box">
+        <video src="images/booking (2).mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="form-box">
+        <h2>Booking Form</h2>
+
+        <form id="bookingForm">
+
+            <input type="text" id="name" placeholder="Full Name">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <input type="tel" id="phone" placeholder="Phone Number">
+
+            <input type="text" id="city" placeholder="City">
+
+            <select id="design">
+                <option value="">Select Design</option>
+                <option>Living Room</option>
+                <option>Bedroom</option>
+                <option>Bathroom</option>
+                <option>Wardrobe</option>
+                <option>Office Room</option>
+                <option>Kitchen</option>
+                <option>Dining Room</option>
+                <option>Pooja Room</option>
+            </select>
+
+            <textarea id="message" placeholder="Message" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+            <button type="reset" id="resetBtn" class="reset-btn">Reset</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let city = document.getElementById("city").value.trim();
+    let design = document.getElementById("design").value;
+    let message = document.getElementById("message").value.trim();
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let phonePattern = /^[0-9]+$/;
+
+    if (name === "" || email === "" || phone === "" || city === "" || design === "") {
+        alert("Please fill all required fields");
+        return;
+    }
+
+    if (!emailPattern.test(email)) {
+        alert("Enter a valid email");
+        return;
+    }
+
+    if (!phonePattern.test(phone)) {
+        alert("Phone must contain digits only");
+        return;
+    }
+
+    alert("Form Submitted Successfully!");
+    this.reset();
+});
+
+document.getElementById("resetBtn").addEventListener("click", function() {
+    alert("Form Reset Successfully");
+});
+</script>
+
+</body>
+</html>

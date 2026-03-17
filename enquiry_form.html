@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interior Design Enquiry</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <!-- header -->
+        <header class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Interior Edit Logo">
+            </div>
+
+             <nav class="navbar">
+                <div class="menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+
+                    <!-- DESIGN GALLERY DROPDOWN -->
+                    <div class="dropdown">
+                        <a href="#">Design Gallery ▾</a>
+                            <div class="dropdown-list">
+                              <a href="living_gallery.html">Living Room</a>
+                              <a href="bedroom_gallery.html">Bedroom</a>
+                              <a href="bathroom_gallery.html">Bathroom</a>
+                              <a href="wardrobe_gallery.html">Wardrobe</a>
+                              <a href="office_gallery.html">Office Room</a>
+                              <a href="kitchen_gallery.html">Kitchen</a>
+                              <a href="dining_gallery.html">Dining Room</a>
+                              <a href="pooja_gallery.html">Pooja Room</a>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#">Cities ▾</a>
+
+                            <div class="dropdown-list">
+                                <a href="mohali.html">Mohali</a>
+                                <a href="jalandhar.html">Jalandhar</a>
+                                <a href="ludhiana.html">Ludhiana</a>
+                                <a href="mumbai.html">Mumbai</a>
+                                <a href="patiala.html">Patiala</a>
+                                <a href="pune.html">Pune</a>
+                                <a href="ahmedabad.html">Ahmedabad</a>
+                                <a href="kolkata.html">Kolkata</a>
+                                <a href="shimla.html">Shimla</a>
+                                <a href="panchkula.html">Panchkula</a>
+                                <a href="gurugram.html">Gurugram</a>
+                                <a href="delhi.html">Delhi</a>
+                            </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <a href="review.html">Review</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="enquiry_form.html">Enquiay </a>
+                    </div>
+                </div>
+            </nav>
+        </header> <!-- end of header -->
+<div class="enquiry-box">
+    <h2>Interior Design Enquiry</h2>
+    <p>Share your details below. Our design expert will contact you soon.</p>
+
+    <form class="enquiry-form" id="enquiryForm">
+
+        <input type="text" name="name" id="name" placeholder="Your Name" required>
+        <input type="email" name="email" id="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required>
+        <input type="text" name="city" id="city" placeholder="Your City" required>
+
+        <select name="service" id="service" required>
+            <option value="">Select Interior Service</option>
+            <option>Living Room Design</option>
+            <option>Bedroom Design</option>
+            <option>Kitchen Design</option>
+            <option>Dining Room Design</option>
+            <option>Bathroom Design</option>
+            <option>Wardrobe Design</option>
+            <option>Office Room Design</option>
+            <option>Pooja Room Design</option>
+            <option>Full Home Interior</option>
+        </select>
+
+        <select name="budget" id="budget" required>
+            <option value="">Select Budget</option>
+            <option>₹50k - ₹1 Lakh</option>
+            <option>₹1 Lakh - ₹3 Lakhs</option>
+            <option>₹3 Lakhs - ₹5 Lakhs</option>
+            <option>₹5 Lakhs - ₹10 Lakhs</option>
+            <option>Above ₹10 Lakhs</option>
+        </select>
+
+        <textarea name="message" id="message" placeholder="Describe your project..." required></textarea>
+
+        <button type="submit">Submit Enquiry</button>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const service = document.getElementById("service").value;
+    const budget = document.getElementById("budget").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !phone || !city || !service || !budget || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    const phonePattern = /^[0-9]{10,15}$/;
+    if (!phonePattern.test(phone)) {
+        alert("Please enter a valid phone number (10-15 digits).");
+        return;
+    }
+
+    alert("Thank you, " + name + "! Your enquiry has been submitted successfully.");
+    this.reset();
+});
+</script>
+
+</body>
+</html>
